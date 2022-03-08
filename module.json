@@ -1,0 +1,23 @@
+{
+    "name": "ensemble",
+    "title": "Ensemble - drag and drop your sound files",
+    "description": "A simple module which allows drag and drop upload of sound files.",
+    "authors": [
+        {
+            "name": "Jan Koch"
+        }
+    ],
+    "esmodules": [
+        "scripts/ensemble.js"
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "languages/en.json"
+        }
+    ],
+    "version": "0.1",
+    "minimumCoreVersion": "9",
+    "compatibleCoreVersion": "9"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "^9.242.0"
+  },
+  "name": "ensemble",
+  "version": "1.0.0",
+  "main": "scripts/ensemble.js",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^17.0.0"
+  }
+}
