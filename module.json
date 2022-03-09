@@ -8,7 +8,9 @@
         }
     ],
     "esmodules": [
-        "scripts/ensemble.js"
+        "scripts/ensemble.js",
+        "scripts/settings.js",
+        "scripts/utils.js"
     ],
     "languages": [
         {
