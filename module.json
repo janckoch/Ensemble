@@ -19,10 +19,12 @@
             "path": "languages/en.json"
         }
     ],
-    "version": "0.1",
-    "minimumCoreVersion": "9",
-    "compatibleCoreVersion": "9",
+    "version": "0.2",
+    "compatibility": {
+        "minimum": 9,
+        "verified": 11
+    },
     "url": "https://github.com/janckoch/Ensemble",
-    "manifest": "https://github.com/janckoch/Ensemble/releases/download/0.1/module.json",
-    "download": "https://github.com/janckoch/Ensemble/releases/download/0.1/module.zip"
+    "manifest": "https://github.com/janckoch/Ensemble/releases/download/0.2/module.json",
+    "download": "https://github.com/janckoch/Ensemble/releases/download/0.2/module.zip"
 }
