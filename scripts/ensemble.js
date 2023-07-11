@@ -23,10 +23,9 @@ async function handleAudioFiles(event, files) {
     const target = settings.UPLOAD_FOLDER_PATH
     let sounds = [];
     for (const file of files) {
-        let notificationId = game.notifications.info(`Uploading ${file.name} to ${target}...`, {permanent: true});
+        let id = ui.notifications.info(`Uploading ${file.name}...`, {permanent: true});
         let response = await FilePicker.upload('data', target, file);
-        await game.notifications.get(notificationId).close();
-        game.notifications.info(`Uploaded ${file.name} to ${target}.`);
+        ui.notifications.remove(id);
         sounds.push({ name: file.name, path: response.path });
     }
     let playlist = game.playlists.contents.find((playlist) => playlist.name === settings.PLAYLIST_NAME);
@@ -41,6 +40,5 @@ async function handleAudioFiles(event, files) {
             playing: false,
         });
     }
-    game.notifications.info(`All files have been uploaded.`);
+    ui.notifications.info(`All files have been uploaded.`);
 }
-
