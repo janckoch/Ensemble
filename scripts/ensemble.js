@@ -28,8 +28,14 @@ async function handleAudioFiles(event, files) {
         ui.notifications.remove(id);
         sounds.push({ name: file.name, path: response.path });
     }
+    let droppedPlaylistId = getPlaylistIdFromElement(
+    		event.srcElement.closest(".playlist")
+    	);
+    let droppedPlaylist  = game.playlists.contents.find((playlist) => playlist.id === droppedPlaylistId);
     let playlist = game.playlists.contents.find((playlist) => playlist.name === settings.PLAYLIST_NAME);
-    if (playlist) {
+    if (droppedPlaylist) {
+        droppedPlaylist.createEmbeddedDocuments("PlaylistSound", sounds);
+    } else if (playlist) {
         playlist.createEmbeddedDocuments("PlaylistSound", sounds);
     } else {
         await Playlist.create({
@@ -41,4 +47,18 @@ async function handleAudioFiles(event, files) {
         });
     }
     ui.notifications.info(`All files have been uploaded.`);
+}
+
+function getPlaylistIdFromElement(el) {
+	if (el == null) {
+		return false;
+	}
+	if ((el.closest(".playlist") == undefined || el.closest(".playlist") == null) &&
+		!el.classList.contains("playlist")) {
+		ui.notifications.error( "Ensemble: Could not add sound files, target must be a playlist");
+		return false;
+	}
+	return el.classList.contains("playlist")
+		? el.getAttribute("data-entry-id")
+		: el.closest(".playlist").getAttribute("data-entry-id");
 }
